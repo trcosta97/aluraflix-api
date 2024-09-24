@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/video")
@@ -41,14 +42,18 @@ public class VideoController {
 
     @GetMapping
     public List<VideoResponse> getAllVideos(){
-        List<Video> videos = getAllVideosUsecase.getAll();
-        List<VideoResponse> responses = new ArrayList<>();
+//        List<Video> videos = getAllVideosUsecase.getAll();
+//        List<VideoResponse> responses = new ArrayList<>();
+//
+//        for(Video video : videos){
+//            VideoResponse response = new VideoResponse(video.getTitle(), video.getDesc(), video.getUrl());
+//            responses.add(response);
+//        }
+//        return responses;
 
-        for(Video video : videos){
-            VideoResponse response = new VideoResponse(video.getTitle(), video.getDesc(), video.getUrl());
-            responses.add(response);
-        }
-        return responses;
+        return getAllVideosUsecase.getAll().stream()
+                .map(u-> new VideoResponse(u.getTitle(), u.getDesc(), u.getUrl()))
+                .collect(Collectors.toList());
     }
 
     @PutMapping("/{id}")

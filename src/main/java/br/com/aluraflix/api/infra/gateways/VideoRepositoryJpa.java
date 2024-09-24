@@ -9,6 +9,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class VideoRepositoryJpa implements VideoRepo {
 
@@ -59,14 +60,18 @@ public class VideoRepositoryJpa implements VideoRepo {
 
     @Override
     public List<Video> getAll() {
-        List<VideoEntity> entities =  repository.findAll();
-        List<Video> domainList = new ArrayList<>();
+//        List<VideoEntity> entities =  repository.findAll();
+//        List<Video> domainList = new ArrayList<>();
+//
+//        for (VideoEntity entity : entities){
+//            Video domain = mapper.toDomain(entity);
+//            domainList.add(domain);
+//        }
+//        return domainList;
 
-        for (VideoEntity entity : entities){
-            Video domain = mapper.toDomain(entity);
-            domainList.add(domain);
-        }
-        return domainList;
+        return repository.findAll().stream()
+                .map(mapper::toDomain)
+                .collect(Collectors.toList());
     }
 
     @Override
