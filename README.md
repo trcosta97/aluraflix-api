@@ -1,8 +1,8 @@
-![GitHub Created At](https://img.shields.io/github/created-at/trcosta97/aluraflix-api)
-
-![GitHub last commit](https://img.shields.io/github/last-commit/trcosta97/aluraflix-api)
-
-![GitHub repo size](https://img.shields.io/github/repo-size/trcosta97/aluraflix-api)
+<div style="display: flex; gap: 10px;">
+    <img src="https://img.shields.io/github/created-at/trcosta97/aluraflix-api" alt="GitHub Created At">
+    <img src="https://img.shields.io/github/last-commit/trcosta97/aluraflix-api" alt="GitHub last commit">
+    <img src="https://img.shields.io/github/repo-size/trcosta97/aluraflix-api" alt="GitHub repo size">
+</div>
 
 
 
